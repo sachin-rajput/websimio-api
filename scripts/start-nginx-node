@@ -1,0 +1,18 @@
+#!/bin/bash
+
+source /root/.bashrc
+
+cd /apps/api/
+
+npm run build
+
+which node >> /apps/api/logs/combined.outerr.log
+node -v >> /apps/api/logs/combined.outerr.log
+npm -v >> /apps/api/logs/combined.outerr.log
+
+NODE_ENV=$NODE_ENV APP_ENV=$APP_ENV pm2 start npm --name "api-services" --merge-logs --log-date-format="YYYY-MM-DD HH:mm Z" -l "/apps/api/logs/combined.outerr.log" -- start
+
+# pm2 logs payment-services --lines 500
+
+# Run the nginx server
+/usr/sbin/nginx
