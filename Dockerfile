@@ -60,7 +60,7 @@ RUN \
 	ln -s /apps/scripts/start-nginx-node /usr/local/bin/start-nginx-node && \
 	chmod +x /apps/scripts/start-nginx-node 
 
-WORKDIR /apps
+WORKDIR /apps/api
 
 # Copy Nginx files
 COPY nginx/default.conf /etc/nginx/conf.d/
