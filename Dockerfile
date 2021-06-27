@@ -14,7 +14,7 @@ RUN yum -y install which
 
 RUN mkdir /usr/local/nvm
 ENV NVM_DIR /usr/local/nvm
-ENV NODE_VERSION 16.0.0
+ENV NODE_VERSION 14.13.0
 
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash  
 
