@@ -59,7 +59,7 @@ jobs:
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: websimio-taskdefinition
+          task-definition: websimiostackwebsimioalbTaskDef8B609E07
           container-name: websimio-container
           image: ${{ steps.build-image.outputs.image }}
 
