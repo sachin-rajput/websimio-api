@@ -69,4 +69,4 @@ jobs:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
           service: websimio-api-service
           cluster: websimio-cluster
-          wait-for-service-stability: true
+          wait-for-service-stability: false

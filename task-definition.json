@@ -12,7 +12,16 @@
           "containerPort": "80",
           "protocol": "tcp"
         }
-      ]
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "secretOptions": [],
+        "options": {
+          "awslogs-group": "websimio-log-group",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "websimio"
+        }
+      }
     }
   ],
   "volumes": [],
