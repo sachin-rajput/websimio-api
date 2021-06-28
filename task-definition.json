@@ -22,6 +22,20 @@
           "awslogs-stream-prefix": "websimio"
         }
       }
+    },
+    {
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "secretOptions": [],
+        "options": {
+          "awslogs-group": "websimio-log-group",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "websimio-app-logs"
+        }
+      },
+      "portMappings": [],
+      "command": ["tail", "-n+1", "-F", "/apps/api/logs/combined.outerr.log"],
+      "name": "logger-sidecar"
     }
   ],
   "volumes": [],
