@@ -4,6 +4,9 @@ source /root/.bashrc
 
 cd /apps/api/
 
+mkdir logs
+touch logs/combined.outerr.log
+
 npm run build
 
 which node >> /apps/api/logs/combined.outerr.log
