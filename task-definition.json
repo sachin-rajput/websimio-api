@@ -35,7 +35,8 @@
       },
       "portMappings": [],
       "command": ["tail", "-n+1", "-F", "/apps/api/logs/combined.outerr.log"],
-      "name": "logger-sidecar"
+      "name": "logger-sidecar",
+      "image": "busybox"
     }
   ],
   "volumes": [],
