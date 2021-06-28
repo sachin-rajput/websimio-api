@@ -21,7 +21,14 @@
           "awslogs-region": "us-east-1",
           "awslogs-stream-prefix": "websimio"
         }
-      }
+      },
+      "mountPoints": [
+        {
+          "readOnly": false,
+          "containerPath": "/apps/api/logs",
+          "sourceVolume": "websimio-logs"
+        }
+      ]
     },
     {
       "logConfiguration": {
@@ -36,10 +43,26 @@
       "portMappings": [],
       "command": ["tail", "-n+1", "-F", "/apps/api/logs/combined.outerr.log"],
       "name": "logger-sidecar",
-      "image": "busybox"
+      "image": "busybox",
+      "volumesFrom": [
+        {
+          "sourceContainer": "websimio-container",
+          "readOnly": true
+        }
+      ]
     }
   ],
-  "volumes": [],
+  "volumes": [
+    {
+      "fsxWindowsFileServerVolumeConfiguration": null,
+      "efsVolumeConfiguration": null,
+      "name": "websimio-logs",
+      "host": {
+        "sourcePath": null
+      },
+      "dockerVolumeConfiguration": null
+    }
+  ],
   "networkMode": "awsvpc",
   "memory": "512",
   "cpu": "256",
